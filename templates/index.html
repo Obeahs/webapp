@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>MyMath Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>MyMath Calculator</h1>
+        <form method="POST" action="/calculate">
+            <label for="numbers">Enter numbers (comma-separated):</label>
+            <input type="text" id="numbers" name="numbers" required>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if results %}
+            <div class="results">
+                <h2>Results:</h2>
+                <p><strong>Max:</strong> {{ results.max }}</p>
+                <p><strong>Average:</strong> {{ results.avg }}</p>
+                <p><strong>Standard Deviation:</strong> {{ results.stddev }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
